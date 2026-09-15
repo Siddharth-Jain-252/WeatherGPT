@@ -15,7 +15,8 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration @EnableMethodSecurity
 public class SecurityConfig {
-    @Bean public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    @Bean 
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(c -> c.disable())
             .cors(Customizer.withDefaults())
             .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
@@ -31,11 +32,7 @@ public class SecurityConfig {
 public CorsConfigurationSource corsConfigurationSource() {
     CorsConfiguration config = new CorsConfiguration();
 
-    config.setAllowedOrigins(List.of(
-        "http://localhost:3000",
-        "https://weather-gpt-sih.vercel.app/"
-        // Add your deployed frontend URL here later
-    ));
+    config.setAllowedOrigins(List.of("*"));
 
     config.setAllowedMethods(List.of(
         "GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"
