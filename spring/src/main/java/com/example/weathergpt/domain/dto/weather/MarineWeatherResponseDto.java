@@ -13,14 +13,14 @@ public record MarineWeatherResponseDto(
             String name,
             String region,
             String country,
-            double lat,
-            double lon,
+            Double lat,
+            Double lon,
 
             @JsonProperty("tz_id")
             String tzId,
 
             @JsonProperty("localtime_epoch")
-            long localtimeEpoch,
+            Long localtimeEpoch,
 
             String localtime
     ) {}
@@ -34,7 +34,7 @@ public record MarineWeatherResponseDto(
             String date,
 
             @JsonProperty("date_epoch")
-            long dateEpoch,
+            Long dateEpoch,
 
             Day day,
 
@@ -45,43 +45,43 @@ public record MarineWeatherResponseDto(
 
     public record Day(
             @JsonProperty("maxtemp_c")
-            double maxTempC,
+            Double maxTempC,
 
             @JsonProperty("maxtemp_f")
-            double maxTempF,
+            Double maxTempF,
 
             @JsonProperty("mintemp_c")
-            double minTempC,
+            Double minTempC,
 
             @JsonProperty("mintemp_f")
-            double minTempF,
+            Double minTempF,
 
             @JsonProperty("avgtemp_c")
-            double avgTempC,
+            Double avgTempC,
 
             @JsonProperty("avgtemp_f")
-            double avgTempF,
+            Double avgTempF,
 
             @JsonProperty("maxwind_mph")
-            double maxWindMph,
+            Double maxWindMph,
 
             @JsonProperty("maxwind_kph")
-            double maxWindKph,
+            Double maxWindKph,
 
             @JsonProperty("totalprecip_mm")
-            double totalPrecipMm,
+            Double totalPrecipMm,
 
             @JsonProperty("totalprecip_in")
-            double totalPrecipIn,
+            Double totalPrecipIn,
 
             @JsonProperty("avgvis_km")
-            double avgVisibilityKm,
+            Double avgVisibilityKm,
 
             @JsonProperty("avgvis_miles")
-            double avgVisibilityMiles,
+            Double avgVisibilityMiles,
 
             @JsonProperty("avghumidity")
-            int avgHumidity,
+            Integer avgHumidity,
 
             Condition condition
     ) {}
@@ -89,7 +89,7 @@ public record MarineWeatherResponseDto(
     public record Condition(
             String text,
             String icon,
-            int code
+            Integer code
     ) {}
 
     public record Astro(
@@ -102,95 +102,95 @@ public record MarineWeatherResponseDto(
             String moonPhase,
 
             @JsonProperty("moon_illumination")
-            int moonIllumination,
+            Integer moonIllumination,
 
             @JsonProperty("is_moon_up")
-            int isMoonUp,
+            Integer isMoonUp,
 
             @JsonProperty("is_sun_up")
-            int isSunUp
+            Integer isSunUp
     ) {}
 
     public record Hour(
             @JsonProperty("time_epoch")
-            long timeEpoch,
+            Long timeEpoch,
 
             String time,
 
             @JsonProperty("temp_c")
-            double tempC,
+            Double tempC,
 
             @JsonProperty("temp_f")
-            double tempF,
+            Double tempF,
 
             @JsonProperty("is_day")
-            int isDay,
+            Integer isDay,
 
             Condition condition,
 
             @JsonProperty("wind_mph")
-            double windMph,
+            Double windMph,
 
             @JsonProperty("wind_kph")
-            double windKph,
+            Double windKph,
 
             @JsonProperty("wind_degree")
-            int windDegree,
+            Integer windDegree,
 
             @JsonProperty("wind_dir")
             String windDir,
 
             @JsonProperty("pressure_mb")
-            double pressureMb,
+            Double pressureMb,
 
             @JsonProperty("pressure_in")
-            double pressureIn,
+            Double pressureIn,
 
             @JsonProperty("precip_mm")
-            double precipMm,
+            Double precipMm,
 
             @JsonProperty("precip_in")
-            double precipIn,
+            Double precipIn,
 
             @JsonProperty("humidity")
-            int humidity,
+            Integer humidity,
 
             @JsonProperty("cloud")
-            int cloud,
+            Integer cloud,
 
             @JsonProperty("vis_km")
-            double visibilityKm,
+            Double visibilityKm,
 
             @JsonProperty("vis_miles")
-            double visibilityMiles,
+            Double visibilityMiles,
 
             @JsonProperty("gust_mph")
-            double gustMph,
+            Double gustMph,
 
             @JsonProperty("gust_kph")
-            double gustKph,
+            Double gustKph,
 
-            double uv,
+            Double uv,
 
             // Marine-specific fields
 
             @JsonProperty("water_temp_c")
-            double waterTempC,
+            Double waterTempC,
 
             @JsonProperty("water_temp_f")
-            double waterTempF,
+            Double waterTempF,
 
             @JsonProperty("sig_ht_mt")
-            double significantWaveHeightM,
+            Double significantWaveHeightM,
 
             @JsonProperty("sig_ht_ft")
-            double significantWaveHeightFt,
+            Double significantWaveHeightFt,
 
             @JsonProperty("swell_ht_mt")
-            double swellHeightM,
+            Double swellHeightM,
 
             @JsonProperty("swell_ht_ft")
-            double swellHeightFt,
+            Double swellHeightFt,
 
             @JsonProperty("swell_dir")
             String swellDirection,
@@ -199,13 +199,13 @@ public record MarineWeatherResponseDto(
             String swellDirection16Point,
 
             @JsonProperty("swell_period_secs")
-            double swellPeriodSeconds,
+            Double swellPeriodSeconds,
 
             @JsonProperty("wind_wave_ht_mt")
-            double windWaveHeightM,
+            Double windWaveHeightM,
 
             @JsonProperty("wind_wave_ht_ft")
-            double windWaveHeightF,
+            Double windWaveHeightF,
 
             @JsonProperty("wind_wave_dir")
             String windWaveDirection,
@@ -214,21 +214,21 @@ public record MarineWeatherResponseDto(
             String windWaveDirection16Point,
 
             @JsonProperty("wind_wave_period_secs")
-            double windWavePeriodSeconds,
+            Double windWavePeriodSeconds,
 
             @JsonProperty("wind_wave_height_mt")
-            double windWaveHeightMt,
+            Double windWaveHeightMt,
 
             @JsonProperty("wind_wave_height_ft")
-            double windWaveHeightFt,
+            Double windWaveHeightFt,
 
             @JsonProperty("wind_wave_period")
-            double windWavePeriod,
+            Double windWavePeriod,
 
             @JsonProperty("wind_wave_direction")
             String windWaveDirectionLegacy,
 
             @JsonProperty("water_temp")
-            double waterTemp
+            Double waterTemp
     ) {}
 }

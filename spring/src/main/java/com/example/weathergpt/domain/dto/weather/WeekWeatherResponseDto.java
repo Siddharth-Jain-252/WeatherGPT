@@ -15,133 +15,133 @@ public record WeekWeatherResponseDto(
             String name,
             String region,
             String country,
-            double lat,
-            double lon,
+            Double lat,
+            Double lon,
 
             @JsonProperty("tz_id")
             String tzId,
 
             @JsonProperty("localtime_epoch")
-            long localtimeEpoch,
+            Long localtimeEpoch,
 
             String localtime
     ) {}
 
     public record Current(
             @JsonProperty("last_updated_epoch")
-            long lastUpdatedEpoch,
+            Long lastUpdatedEpoch,
 
             @JsonProperty("last_updated")
             String lastUpdated,
 
             @JsonProperty("temp_c")
-            double tempC,
+            Double tempC,
 
             @JsonProperty("temp_f")
-            double tempF,
+            Double tempF,
 
             @JsonProperty("is_day")
-            int isDay,
+            Integer isDay,
 
             Condition condition,
 
             @JsonProperty("wind_mph")
-            double windMph,
+            Double windMph,
 
             @JsonProperty("wind_kph")
-            double windKph,
+            Double windKph,
 
             @JsonProperty("wind_degree")
-            int windDegree,
+            Integer windDegree,
 
             @JsonProperty("wind_dir")
             String windDir,
 
             @JsonProperty("pressure_mb")
-            double pressureMb,
+            Double pressureMb,
 
             @JsonProperty("pressure_in")
-            double pressureIn,
+            Double pressureIn,
 
             @JsonProperty("precip_mm")
-            double precipMm,
+            Double precipMm,
 
             @JsonProperty("precip_in")
-            double precipIn,
+            Double precipIn,
 
-            int humidity,
-            int cloud,
+            Integer humidity,
+            Integer cloud,
 
             @JsonProperty("feelslike_c")
-            double feelsLikeC,
+            Double feelsLikeC,
 
             @JsonProperty("feelslike_f")
-            double feelsLikeF,
+            Double feelsLikeF,
 
             @JsonProperty("windchill_c")
-            double windChillC,
+            Double windChillC,
 
             @JsonProperty("windchill_f")
-            double windChillF,
+            Double windChillF,
 
             @JsonProperty("heatindex_c")
-            double heatIndexC,
+            Double heatIndexC,
 
             @JsonProperty("heatindex_f")
-            double heatIndexF,
+            Double heatIndexF,
 
             @JsonProperty("dewpoint_c")
-            double dewPointC,
+            Double dewPointC,
 
             @JsonProperty("dewpoint_f")
-            double dewPointF,
+            Double dewPointF,
 
             @JsonProperty("vis_km")
-            double visibilityKm,
+            Double visibilityKm,
 
             @JsonProperty("vis_miles")
-            double visibilityMiles,
+            Double visibilityMiles,
 
-            double uv,
+            Double uv,
 
             @JsonProperty("gust_mph")
-            double gustMph,
+            Double gustMph,
 
             @JsonProperty("gust_kph")
-            double gustKph,
+            Double gustKph,
 
             @JsonProperty("will_it_rain")
-            int willItRain,
+            Integer willItRain,
 
             @JsonProperty("chance_of_rain")
-            int chanceOfRain,
+            Integer chanceOfRain,
 
             @JsonProperty("will_it_snow")
-            int willItSnow,
+            Integer willItSnow,
 
             @JsonProperty("chance_of_snow")
-            int chanceOfSnow,
+            Integer chanceOfSnow,
 
             @JsonProperty("wetbulb_c")
-            double wetBulbC,
+            Double wetBulbC,
 
             @JsonProperty("wetbulb_f")
-            double wetBulbF,
+            Double wetBulbF,
 
             @JsonProperty("short_rad")
-            double shortRad,
+            Double shortRad,
 
             @JsonProperty("diff_rad")
-            double diffRad,
+            Double diffRad,
 
-            double dni,
-            double gti
+            Double dni,
+            Double gti
     ) {}
 
     public record Condition(
             String text,
             String icon,
-            int code
+            Integer code
     ) {}
 
     public record Forecast(
@@ -153,7 +153,7 @@ public record WeekWeatherResponseDto(
             String date,
 
             @JsonProperty("date_epoch")
-            long dateEpoch,
+            Long dateEpoch,
 
             Day day,
             Astro astro,
@@ -163,74 +163,74 @@ public record WeekWeatherResponseDto(
 
     public record Day(
             @JsonProperty("maxtemp_c")
-            double maxTempC,
+            Double maxTempC,
 
             @JsonProperty("maxtemp_f")
-            double maxTempF,
+            Double maxTempF,
 
             @JsonProperty("mintemp_c")
-            double minTempC,
+            Double minTempC,
 
             @JsonProperty("mintemp_f")
-            double minTempF,
+            Double minTempF,
 
             @JsonProperty("avgtemp_c")
-            double avgTempC,
+            Double avgTempC,
 
             @JsonProperty("avgtemp_f")
-            double avgTempF,
+            Double avgTempF,
 
             @JsonProperty("maxwind_mph")
-            double maxWindMph,
+            Double maxWindMph,
 
             @JsonProperty("maxwind_kph")
-            double maxWindKph,
+            Double maxWindKph,
 
             @JsonProperty("totalprecip_mm")
-            double totalPrecipMm,
+            Double totalPrecipMm,
 
             @JsonProperty("totalprecip_in")
-            double totalPrecipIn,
+            Double totalPrecipIn,
 
             @JsonProperty("totalsnow_cm")
-            double totalSnowCm,
+            Double totalSnowCm,
 
             @JsonProperty("avgvis_km")
-            double avgVisibilityKm,
+            Double avgVisibilityKm,
 
             @JsonProperty("avgvis_miles")
-            double avgVisibilityMiles,
+            Double avgVisibilityMiles,
 
             @JsonProperty("avghumidity")
-            int avgHumidity,
+            Integer avgHumidity,
 
             @JsonProperty("daily_will_it_rain")
-            int dailyWillItRain,
+            Integer dailyWillItRain,
 
             @JsonProperty("daily_chance_of_rain")
-            int dailyChanceOfRain,
+            Integer dailyChanceOfRain,
 
             @JsonProperty("daily_will_it_snow")
-            int dailyWillItSnow,
+            Integer dailyWillItSnow,
 
             @JsonProperty("daily_chance_of_snow")
-            int dailyChanceOfSnow,
+            Integer dailyChanceOfSnow,
 
             Condition condition,
 
-            double uv,
+            Double uv,
 
             @JsonProperty("avgwetbulb_c")
-            double avgWetBulbC,
+            Double avgWetBulbC,
 
             @JsonProperty("avgwetbulb_f")
-            double avgWetBulbF,
+            Double avgWetBulbF,
 
             @JsonProperty("maxwetbulb_c")
-            double maxWetBulbC,
+            Double maxWetBulbC,
 
             @JsonProperty("maxwetbulb_f")
-            double maxWetBulbF
+            Double maxWetBulbF
     ) {}
 
     public record Astro(
@@ -243,126 +243,126 @@ public record WeekWeatherResponseDto(
             String moonPhase,
 
             @JsonProperty("moon_illumination")
-            int moonIllumination,
+            Integer moonIllumination,
 
             @JsonProperty("is_moon_up")
-            int isMoonUp,
+            Integer isMoonUp,
 
             @JsonProperty("is_sun_up")
-            int isSunUp
+            Integer isSunUp
     ) {}
 
     public record Hour(
             @JsonProperty("time_epoch")
-            long timeEpoch,
+            Long timeEpoch,
 
             String time,
 
             @JsonProperty("temp_c")
-            double tempC,
+            Double tempC,
 
             @JsonProperty("temp_f")
-            double tempF,
+            Double tempF,
 
             @JsonProperty("is_day")
-            int isDay,
+            Integer isDay,
 
             Condition condition,
 
             @JsonProperty("wind_mph")
-            double windMph,
+            Double windMph,
 
             @JsonProperty("wind_kph")
-            double windKph,
+            Double windKph,
 
             @JsonProperty("wind_degree")
-            int windDegree,
+            Integer windDegree,
 
             @JsonProperty("wind_dir")
             String windDir,
 
             @JsonProperty("pressure_mb")
-            double pressureMb,
+            Double pressureMb,
 
             @JsonProperty("pressure_in")
-            double pressureIn,
+            Double pressureIn,
 
             @JsonProperty("precip_mm")
-            double precipMm,
+            Double precipMm,
 
             @JsonProperty("precip_in")
-            double precipIn,
+            Double precipIn,
 
             @JsonProperty("snow_cm")
-            double snowCm,
+            Double snowCm,
 
-            int humidity,
-            int cloud,
+            Integer humidity,
+            Integer cloud,
 
             @JsonProperty("feelslike_c")
-            double feelsLikeC,
+            Double feelsLikeC,
 
             @JsonProperty("feelslike_f")
-            double feelsLikeF,
+            Double feelsLikeF,
 
             @JsonProperty("windchill_c")
-            double windChillC,
+            Double windChillC,
 
             @JsonProperty("windchill_f")
-            double windChillF,
+            Double windChillF,
 
             @JsonProperty("heatindex_c")
-            double heatIndexC,
+            Double heatIndexC,
 
             @JsonProperty("heatindex_f")
-            double heatIndexF,
+            Double heatIndexF,
 
             @JsonProperty("dewpoint_c")
-            double dewPointC,
+            Double dewPointC,
 
             @JsonProperty("dewpoint_f")
-            double dewPointF,
+            Double dewPointF,
 
             @JsonProperty("will_it_rain")
-            int willItRain,
+            Integer willItRain,
 
             @JsonProperty("chance_of_rain")
-            int chanceOfRain,
+            Integer chanceOfRain,
 
             @JsonProperty("will_it_snow")
-            int willItSnow,
+            Integer willItSnow,
 
             @JsonProperty("chance_of_snow")
-            int chanceOfSnow,
+            Integer chanceOfSnow,
 
             @JsonProperty("vis_km")
-            double visibilityKm,
+            Double visibilityKm,
 
             @JsonProperty("vis_miles")
-            double visibilityMiles,
+            Double visibilityMiles,
 
             @JsonProperty("gust_mph")
-            double gustMph,
+            Double gustMph,
 
             @JsonProperty("gust_kph")
-            double gustKph,
+            Double gustKph,
 
-            double uv,
+            Double uv,
 
             @JsonProperty("wetbulb_c")
-            double wetBulbC,
+            Double wetBulbC,
 
             @JsonProperty("wetbulb_f")
-            double wetBulbF,
+            Double wetBulbF,
 
             @JsonProperty("short_rad")
-            double shortRad,
+            Double shortRad,
 
             @JsonProperty("diff_rad")
-            double diffRad,
+            Double diffRad,
 
-            double dni,
-            double gti
+            Double dni,
+            Double gti
     ) {}
 
     public record Alerts(

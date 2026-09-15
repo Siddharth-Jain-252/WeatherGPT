@@ -11,14 +11,14 @@ public record CurrentWeatherDto(
             String name,
             String region,
             String country,
-            double lat,
-            double lon,
+            Double lat,
+            Double lon,
 
             @JsonProperty("tz_id")
             String tzId,
 
             @JsonProperty("localtime_epoch")
-            long localtimeEpoch,
+            Long localtimeEpoch,
 
             String localtime
     ) {}
@@ -26,50 +26,50 @@ public record CurrentWeatherDto(
     public record Current(
 
             @JsonProperty("temp_c")
-            double tempC,
+            Double tempC,
 
             @JsonProperty("temp_f")
-            double tempF,
+            Double tempF,
 
             Condition condition,
 
             @JsonProperty("wind_kph")
-            double windKph,
+            Double windKph,
 
             @JsonProperty("wind_degree")
-            int windDegree,
+            Integer windDegree,
 
             @JsonProperty("wind_dir")
             String windDir,
 
             @JsonProperty("pressure_mb")
-            double pressureMb,
+            Double pressureMb,
 
             @JsonProperty("precip_mm")
-            double precipMm,
+            Double precipMm,
 
             @JsonProperty("precip_in")
-            double precipIn,
+            Double precipIn,
 
-            int humidity,
-            int cloud,
+            Integer humidity,
+            Integer cloud,
 
             @JsonProperty("feelslike_c")
-            double feelsLikeC,
+            Double feelsLikeC,
 
-            double uv,
+            Double uv,
             
             @JsonProperty("will_it_rain")
-            int willItRain,
+            Integer willItRain,
 
             @JsonProperty("chance_of_rain")
-            int chanceOfRain,
+            Integer chanceOfRain,
 
             @JsonProperty("will_it_snow")
-            int willItSnow,
+            Integer willItSnow,
 
             @JsonProperty("chance_of_snow")
-            int chanceOfSnow
+            Integer chanceOfSnow
 
     ) {}
 
