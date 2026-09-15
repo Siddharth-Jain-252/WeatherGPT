@@ -1,0 +1,74 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: weather-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: weather_app
+      POSTGRES_USER: weather_user
+      POSTGRES_PASSWORD: weather_password
+    ports: ["5433:5432"]
+    volumes: [postgres_data:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL","pg_isready -U weather_user -d weather_app"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:8
+    container_name: weather-redis
+    restart: unless-stopped
+    ports: ["6379:6379"]
+    volumes: [redis_data:/data]
+    healthcheck:
+      test: ["CMD","redis-cli","ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  fastapi:
+    build: ./fastapi
+    container_name: weather-fastapi
+    restart: unless-stopped
+    environment:
+      GROQ_API_KEY: ${GROQ_API_KEY}
+      MODEL_NAME: ${MODEL_NAME:-openai/gpt-oss-120b}
+      FASTAPI_API_KEY: ${FASTAPI_API_KEY}
+    ports: ["8000:8000"]
+    healthcheck:
+      test: ["CMD","python","-c","import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  spring:
+    build: ./spring
+    container_name: weather-spring
+    restart: unless-stopped
+    environment:
+      WEATHER_API_KEY: ${WEATHER_API_KEY}
+      FASTAPI_API_KEY: ${FASTAPI_API_KEY}
+      JWT_SECRET: ${JWT_SECRET}
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/weather_app
+      SPRING_DATASOURCE_USERNAME: weather_user
+      SPRING_DATASOURCE_PASSWORD: weather_password
+      SPRING_DATA_REDIS_HOST: redis
+      SPRING_DATA_REDIS_PORT: 6379
+      FASTAPI_BASE_URL: http://fastapi:8000
+    ports: ["8081:8080"]
+    depends_on:
+      postgres: {condition: service_healthy}
+      redis: {condition: service_healthy}
+      fastapi: {condition: service_healthy}
+
+  adminer:
+    image: adminer:latest
+    container_name: weather-adminer
+    restart: unless-stopped
+    ports: ["8888:8080"]
+    depends_on: [postgres]
+
+volumes:
+  postgres_data:
+  redis_data:
