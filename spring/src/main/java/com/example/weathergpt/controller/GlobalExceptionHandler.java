@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.example.weathergpt.domain.dto.ErrorDto;
 import com.example.weathergpt.exception.EmailAlreadyExistsException;
+import com.example.weathergpt.exception.InvalidCredentialsException;
 import com.example.weathergpt.exception.UserNotFoundException;
 
 import jakarta.validation.ConstraintViolationException;
@@ -28,6 +29,14 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errorDto, HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(InvalidCredentialsException.class)
+    public ResponseEntity<ErrorDto> handleInvalidCredentialsException(
+            InvalidCredentialsException e) {
+
+        return ResponseEntity
+                .status(HttpStatus.UNAUTHORIZED)
+                .body(new ErrorDto("Invalid email or password."));
+    }
 
     @ExceptionHandler(UserNotFoundException.class)
     public ResponseEntity<ErrorDto> handleUserNotFoundException(UserNotFoundException e) {
