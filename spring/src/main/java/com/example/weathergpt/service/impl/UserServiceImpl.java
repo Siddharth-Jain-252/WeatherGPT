@@ -47,7 +47,7 @@ public class UserServiceImpl implements UserService {
                 .email(request.email())
                 .homeLocation(request.homeLocation())
                 .workLocation(request.workLocation())
-                .role(RoleEnum.NORMAL_USER)
+                .role(request.role())
                 .password(
                         passwordEncoder.encode(
                                 request.password()
